@@ -1,16 +1,39 @@
-import re
+def main():
+    qty = None
+    cost = None
 
 
-def is_date_format_correct(date: str) -> bool:
+def fetch_quantity():
     """
-    This function takes in a date in string format
-    and returns true if the date matches the format
-    YYYY-MM-DD and false if it doesn't
+    Returns a number, any number
     """
+    ...
+    return ...
 
-    correct_format = re.compile(r'^\d{4}-\d{2}-\d{2}$')
-    return bool(correct_format.match(date))
+
+def fetch_cost():
+    """
+    Returns a number, any number
+    """
+    ...
+    return ...
 
 
-print(is_date_format_correct("1999-01-01"))
-print(is_date_format_correct("1999/01/01"))
+def compute_cost_per_quantity():
+    try:
+        qty = fetch_quantity()
+        cost = fetch_cost()
+        cost_per_quantity = cost / qty
+        return cost_per_quantity
+    except Exception as e:
+        print(e)
+        exit()
+
+
+try:
+    cost_per_quantity = compute_cost_per_quantity()
+    a = 1 + 2 + cost_per_quantity
+    b = 4 + 5
+    print(a + b)
+except Exception as e:
+    print(e)
