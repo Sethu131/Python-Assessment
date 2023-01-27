@@ -18,7 +18,7 @@ df_student = pd.DataFrame({
     "weight": ['80kg', '70kg', '690kg', '73kg', '60kg', '70kg', '80kg', '88kg', '74kg']
 })
 
-result = []
+final_result = []
 
 # group the student dataframe by teacher
 grouped_students = df_student.groupby("teacher")
@@ -35,9 +35,9 @@ for teacher, group in grouped_students:
     students = [{"student": row["name"], "age": row["age"], "height": row["height"]} for i, row in group.iterrows()]
 
     # add the teacher information and students to the final result
-    result.append({"teacher": teacher, "school": school, "married": married, "Students": students})
+    final_result.append({"teacher": teacher, "school": school, "married": married, "Students": students})
 
-Json_string = json.dumps(result, indent=4, sort_keys=True)
+Json_string = json.dumps(final_result, indent=4, sort_keys=True)
 # print(Json_string)
 
 
