@@ -20,21 +20,15 @@ df_student = pd.DataFrame({
 
 final_result = []
 
-# group the student dataframe by teacher
 grouped_students = df_student.groupby("teacher")
 
-
-# iterate through the groups
 for teacher, group in grouped_students:
-    # get the relevant information from the teacher dataframe
+  
     teacher_info = df_teacher[df_teacher["name"] == teacher]
     school = teacher_info["school"].values[0]
     married = str(teacher_info["married"].values[0])
 
-    # create a dictionary for the students in the group
     students = [{"student": row["name"], "age": row["age"], "height": row["height"]} for i, row in group.iterrows()]
-
-    # add the teacher information and students to the final result
     final_result.append({"teacher": teacher, "school": school, "married": married, "Students": students})
 
 Json_string = json.dumps(final_result, indent=4, sort_keys=True)
