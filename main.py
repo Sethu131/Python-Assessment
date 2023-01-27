@@ -38,7 +38,7 @@ for teacher, group in grouped_students:
     final_result.append({"teacher": teacher, "school": school, "married": married, "Students": students})
 
 Json_string = json.dumps(final_result, indent=4, sort_keys=True)
-# print(Json_string)
+print(Json_string)
 
 
 
